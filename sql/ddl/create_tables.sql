@@ -4,8 +4,8 @@
 -- ============================================================
 
 -- ── Database & Schema ────────────────────────────────────────────────────────
-CREATE DATABASE IF NOT EXISTS ECOMMERCE_DW;
-USE DATABASE ECOMMERCE_DW;
+CREATE DATABASE IF NOT EXISTS MY_DB;
+USE DATABASE MY_DB;
 CREATE SCHEMA IF NOT EXISTS PUBLIC;
 USE SCHEMA PUBLIC;
 
@@ -19,8 +19,6 @@ CREATE OR REPLACE FILE FORMAT PARQUET_FORMAT
 -- Alternatively use AWS key/secret pair:
 --   CREDENTIALS = (AWS_KEY_ID='...' AWS_SECRET_KEY='...')
 CREATE OR REPLACE STAGE ECOMMERCE_STAGE
-    URL = 's3://<YOUR_BUCKET>/'
-    CREDENTIALS = (AWS_ROLE = '<YOUR_IAM_ROLE_ARN>')
     FILE_FORMAT = PARQUET_FORMAT
     COMMENT = 'ETL landing zone — bronze (raw/) and silver (staged/) layers';
 
